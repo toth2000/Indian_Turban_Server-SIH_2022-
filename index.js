@@ -6,10 +6,7 @@ const cors = require("cors");
 /**Routes Import */
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
-// const productRoute = require("./routes/product");
-// const cartRoute = require("./routes/cart");
-// const orderRoute = require("./routes/order");
-// const paymentRoute = require("./routes/payment");
+const turbanRoute = require("./routes/turban");
 
 const app = express();
 dotenv.config();
@@ -22,10 +19,7 @@ app.use(cors());
 /** Routes */
 app.use("/user", userRoute);
 app.use("/auth", authRoute);
-// app.use("/product", productRoute);
-// app.use("/cart", cartRoute);
-// app.use("/order", orderRoute);
-// app.use("/payment", paymentRoute);
+app.use("/turban", turbanRoute);
 
 app.get("/", (req, res) => {
   res.send("Server Running");
