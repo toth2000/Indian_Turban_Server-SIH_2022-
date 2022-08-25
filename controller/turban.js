@@ -5,7 +5,7 @@ const createTurban = async (req, res) => {
     const { name, location, description, imageUrl, modelUrl, videoUrl } =
       req.body;
 
-    if (!name || !location || !description || !imageUrl || !modelUrl)
+    if (!name || !location || !description || !imageUrl)
       return res.status(400).json({ message: "Provide all neccessary data" });
 
     const newTurban = new Turban({
@@ -33,7 +33,7 @@ const editTurban = async (req, res) => {
 
     const { id } = req.params;
 
-    if (!name || !location || !description || !imageUrl || !modelUrl)
+    if (!name || !location || !description || !imageUrl)
       return res.status(400).json({ message: "Provide all neccessary data" });
 
     const turban = await Turban.findById(id);
