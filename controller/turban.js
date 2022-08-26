@@ -80,4 +80,27 @@ const getAllTurbans = async (req, res) => {
   }
 };
 
-module.exports = { createTurban, editTurban, deleteTurban, getAllTurbans };
+const getTurbanById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const turban = await Turban.findById(id);
+
+    if (!turban) return res.status(404).json({ message: "Turban Not Found" });
+
+    return res.status(200).json(turban);
+  } catch (error) {
+    console.log("turban controller, getAllTurbans\n", error);
+    return res
+      .status(500)
+      .json({ message: "Server error", error: error.message });
+  }
+};
+
+module.exports = {
+  createTurban,
+  editTurban,
+  deleteTurban,
+  getAllTurbans,
+  getTurbanById,
+};
