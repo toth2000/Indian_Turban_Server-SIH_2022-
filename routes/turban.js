@@ -10,11 +10,14 @@ const {
   editTurban,
   deleteTurban,
   getAllTurbans,
+  getTurbanById,
 } = require("../controller/turban");
 
 const router = express.Router();
 
 router.get("/", getAllTurbans);
+
+router.get("/:id", getTurbanById);
 
 router.put(
   "/:id",
